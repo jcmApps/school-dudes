@@ -20,9 +20,9 @@ public class SchoolDudes
     ArrayList<CollegeEmployee> collegeEmployee = new ArrayList<>();
     ArrayList<Faculty> faculty = new ArrayList<>();
     ArrayList<Student> student = new ArrayList<>();
-    CollegeEmployee emp = new CollegeEmployee();
-    Faculty fac = new Faculty();
-    Student stu = new Student();
+    CollegeEmployee emp;
+    Faculty fac;
+    Student stu;
     
     public SchoolDudes()//default constructor
     {
@@ -31,7 +31,7 @@ public class SchoolDudes
     
     public void Dude()
     {
-        int num1 = 0;
+        int num1;
         
         do
         {
@@ -59,15 +59,13 @@ public class SchoolDudes
     
     public void AddDude()
     {
-        int num2 = 0;
-        String first = "";
-        String last = "";
-        String addy = "";
-        String zip = "";
-        String digits = "";
+        int num2;
+        String first;
+        String last;
+        String addy;
+        String zip;
+        String digits;
         
-        do
-        {
             System.out.println("Select an option to input info:");
             System.out.println("\t1. College Employee");
             System.out.println("\t2. Faculty Member");
@@ -92,34 +90,36 @@ public class SchoolDudes
             
             switch(num2)
             {
-                case 1:
+                case 1:  
+                    emp = new CollegeEmployee();
                     
-                    System.out.println("Please enter the employee's SSN => ");
+                    System.out.printf("Please enter the employee's SSN => ");
                     emp.setSsn(scan.next());
-                    System.out.println("Please enter the employee's department => ");
+                    System.out.printf("Please enter the employee's department => ");
                     emp.setDepartment(scan.next());
-                    System.out.println("Please enter the employee's salary => ");
+                    System.out.printf("Please enter the employee's salary => ");
                     emp.setSalary(scan.nextDouble());
-                    scan.nextLine();                    
+                    scan.nextLine();
                     
                     emp.setFirstName(first);
                     emp.setLastName(last);
                     emp.setAddress(addy);
+                    emp.setZipCode(zip);
                     emp.setPhone(digits);
                     collegeEmployee.add(emp);           
                     break;
                 case 2:
-//                    boolean ten = false;
-                    String tenChoice = "";
+                    fac = new Faculty();
+                    String tenChoice;
                     
-                    System.out.println("Please enter the employee's SSN => ");
+                    System.out.printf("Please enter the employee's SSN => ");
                     fac.setSsn(scan.next());
-                    System.out.println("Please enter the employee's department => ");
+                    System.out.printf("Please enter the employee's department => ");
                     fac.setDepartment(scan.next());
-                    System.out.println("Please enter the employee's salary => ");
+                    System.out.printf("Please enter the employee's salary => ");
                     fac.setSalary(scan.nextDouble());
                     scan.nextLine();
-                    System.out.println("Is the employee tenured? (Y/N) => ");
+                    System.out.printf("Is the employee tenured? (Y/N) => ");
                     tenChoice = scan.next().toUpperCase();                    
                     if(tenChoice.equals("Y"))
                         fac.setTenured(true);
@@ -128,38 +128,53 @@ public class SchoolDudes
                     fac.setFirstName(first);
                     fac.setLastName(last);
                     fac.setAddress(addy);
+                    fac.setZipCode(zip);
                     fac.setPhone(digits);
                     faculty.add(fac);
                     break;
-                case 3:                    
-                    System.out.println("Please enter the students major ==> ");
+                case 3:
+                    stu = new Student();
+                    
+                    System.out.printf("Please enter the students major ==> ");
                     stu.setMajor(scan.next());
-                    System.out.println("Please enter the students GPA ==> ");
+                    System.out.printf("Please enter the students GPA ==> ");
                     stu.setGpa(scan.nextDouble());
                     
                     stu.setFirstName(first);
                     stu.setLastName(last);
                     stu.setAddress(addy);
+                    stu.setZipCode(zip);
                     stu.setPhone(digits);
                     student.add(stu);
                     break;
             }
-            num2 = 4;
-        }while(num2 < 4);
     }
     
     public void Find()
     {
+        String search;
         
+        System.out.printf("Enter first name of person you wish to find.");
+        search = scan.nextLine();
+        
+        System.out.printf("\nYour search returned this entry,");
+        
+        for (CollegeEmployee collegeEmployee_1 : collegeEmployee)
+            if(collegeEmployee_1.getFirstName().equals(search))
+                collegeEmployee_1.DisplayAll();
+        
+        for (Faculty faculty_1 : faculty)
+            if(faculty_1.getFirstName().equals(search))
+                faculty_1.DisplayAll();
+        
+        for (Student student_1 : student)
+            if(student_1.getFirstName().equals(search))
+                student_1.DisplayAll();
     }
     
     public void DisplayAll()
     {
-        int num3 = 0;
-        Person[] persons = new Person[3];
-        persons[0] = emp;
-        persons[1] = fac;
-        persons[2] = stu;
+        int num3;
         
         System.out.println("Which group would you like to display?");
         System.out.println("\t1. College Employees");
@@ -172,49 +187,19 @@ public class SchoolDudes
         {
             case 1:
                 System.out.println("College Employees:");
-                persons[0].DisplayAll();
+                for (CollegeEmployee collegeEmployee_1 : collegeEmployee)
+                    collegeEmployee_1.DisplayAll();
                 break;
             case 2:
                 System.out.println("Faculty Members:");
-                persons[2].DisplayAll();
+                for (Faculty faculty_1 : faculty)
+                    faculty_1.DisplayAll();
                 break;
             case 3:
                 System.out.println("Students:");
-                persons[3].DisplayAll();
+                for (Student student_1 : student)
+                    student_1.DisplayAll();
                 break;
-        }
-        
-//        for(int i = 0; i < persons.length; i++)
-//         {
-//             if(i == 0)
-//                 System.out.println("College Employees:");
-//             if(i == 1)
-//                 System.out.println("Faculty Members:");
-//             if (i == 2)
-//                 System.out.println("Students:");
-//             persons[i].DisplayAll();
-//         }
-//        for (CollegeEmployee collegeEmployee_1 : collegeEmployee) 
-//        {
-//            collegeEmployee_1.DisplayAll();
-//        }
-//        
-//        for (Faculty faculty_1 : faculty) 
-//        {
-//            faculty_1.DisplayAll();
-//        }
-//        for (Student student_1 : student) 
-//        {
-//            student_1.DisplayAll();
-//        }
-        
-            
-//        Person[] manyAnimals = new Person[3];
-//        manyAnimals[0] = new CollegeEmployee();
-//         manyAnimals[1] = new Faculty();
-//         manyAnimals[2] = new Student();
-//
-//
-         
+        }         
     }
 }
