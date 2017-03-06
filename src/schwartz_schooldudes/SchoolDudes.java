@@ -66,88 +66,88 @@ public class SchoolDudes
         String zip;
         String digits;
         
-            System.out.println("Select an option to input info:");
-            System.out.println("\t1. College Employee");
-            System.out.println("\t2. Faculty Member");
-            System.out.println("\t3. Student");
-            num2 = scan.nextInt();
-            scan.nextLine();
-            
-            System.out.printf("Enter first name => ");
-            first = scan.nextLine();
-        
-            System.out.printf("Enter last name => ");
-            last = scan.nextLine();
-            
-            System.out.printf("Enter your address => ");
-            addy = scan.nextLine();
-            
-            System.out.printf("Enter your zip code => ");
-            zip = scan.nextLine();
-            
-            System.out.printf("Enter your phone number => ");
-            digits = scan.nextLine();
-            
-            switch(num2)
-            {
-                case 1:  
-                    emp = new CollegeEmployee();
-                    
-                    System.out.printf("Please enter the employee's SSN => ");
-                    emp.setSsn(scan.next());
-                    System.out.printf("Please enter the employee's department => ");
-                    emp.setDepartment(scan.next());
-                    System.out.printf("Please enter the employee's salary => ");
-                    emp.setSalary(scan.nextDouble());
-                    scan.nextLine();
-                    
-                    emp.setFirstName(first);
-                    emp.setLastName(last);
-                    emp.setAddress(addy);
-                    emp.setZipCode(zip);
-                    emp.setPhone(digits);
-                    collegeEmployee.add(emp);           
-                    break;
-                case 2:
-                    fac = new Faculty();
-                    String tenChoice;
-                    
-                    System.out.printf("Please enter the employee's SSN => ");
-                    fac.setSsn(scan.next());
-                    System.out.printf("Please enter the employee's department => ");
-                    fac.setDepartment(scan.next());
-                    System.out.printf("Please enter the employee's salary => ");
-                    fac.setSalary(scan.nextDouble());
-                    scan.nextLine();
-                    System.out.printf("Is the employee tenured? (Y/N) => ");
-                    tenChoice = scan.next().toUpperCase();                    
-                    if(tenChoice.equals("Y"))
-                        fac.setTenured(true);
-                    scan.nextLine();
-                    
-                    fac.setFirstName(first);
-                    fac.setLastName(last);
-                    fac.setAddress(addy);
-                    fac.setZipCode(zip);
-                    fac.setPhone(digits);
-                    faculty.add(fac);
-                    break;
-                case 3:
-                    stu = new Student();
-                    
-                    System.out.printf("Please enter the students major ==> ");
-                    stu.setMajor(scan.next());
-                    System.out.printf("Please enter the students GPA ==> ");
-                    stu.setGpa(scan.nextDouble());
-                    
-                    stu.setFirstName(first);
-                    stu.setLastName(last);
-                    stu.setAddress(addy);
-                    stu.setZipCode(zip);
-                    stu.setPhone(digits);
-                    student.add(stu);
-                    break;
-            }
+        System.out.println("Select an option to input info:");
+        System.out.println("\t1. College Employee");
+        System.out.println("\t2. Faculty Member");
+        System.out.println("\t3. Student");
+        num2 = scan.nextInt();
+        scan.nextLine();
+
+        System.out.printf("Enter first name => ");
+        first = scan.nextLine();
+
+        System.out.printf("Enter last name => ");
+        last = scan.nextLine();
+
+        System.out.printf("Enter your address => ");
+        addy = scan.nextLine();
+
+        System.out.printf("Enter your zip code => ");
+        zip = scan.nextLine();
+
+        System.out.printf("Enter your phone number => ");
+        digits = scan.nextLine();
+
+        switch(num2)
+        {
+            case 1:  
+                emp = new CollegeEmployee();
+
+                System.out.printf("Please enter the employee's SSN => ");
+                emp.setSsn(scan.next());
+                System.out.printf("Please enter the employee's department => ");
+                emp.setDepartment(scan.next());
+                System.out.printf("Please enter the employee's salary => ");
+                emp.setSalary(scan.nextDouble());
+                scan.nextLine();
+
+                emp.setFirstName(first);
+                emp.setLastName(last);
+                emp.setAddress(addy);
+                emp.setZipCode(zip);
+                emp.setPhone(digits);
+                collegeEmployee.add(emp);           
+                break;
+            case 2:
+                fac = new Faculty();
+                String tenChoice;
+
+                System.out.printf("Please enter the employee's SSN => ");
+                fac.setSsn(scan.next());
+                System.out.printf("Please enter the employee's department => ");
+                fac.setDepartment(scan.next());
+                System.out.printf("Please enter the employee's salary => ");
+                fac.setSalary(scan.nextDouble());
+                scan.nextLine();
+                System.out.printf("Is the employee tenured? (Y/N) => ");
+                tenChoice = scan.next().toUpperCase();                    
+                if(tenChoice.equals("Y"))
+                    fac.setTenured(true);
+                scan.nextLine();
+
+                fac.setFirstName(first);
+                fac.setLastName(last);
+                fac.setAddress(addy);
+                fac.setZipCode(zip);
+                fac.setPhone(digits);
+                faculty.add(fac);
+                break;
+            case 3:
+                stu = new Student();
+
+                System.out.printf("Please enter the students major ==> ");
+                stu.setMajor(scan.next());
+                System.out.printf("Please enter the students GPA ==> ");
+                stu.setGpa(scan.nextDouble());
+
+                stu.setFirstName(first);
+                stu.setLastName(last);
+                stu.setAddress(addy);
+                stu.setZipCode(zip);
+                stu.setPhone(digits);
+                student.add(stu);
+                break;
+        }
     }
     
     public void Find()
