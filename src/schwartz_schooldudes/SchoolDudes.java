@@ -154,21 +154,21 @@ public class SchoolDudes
     {
         String search;
         
-        System.out.printf("Enter first name of person you wish to find.");
+        System.out.printf("Enter last name of person you wish to find.");
         search = scan.nextLine();
         
         System.out.printf("\nYour search returned this entry,");
         
         for (CollegeEmployee collegeEmployee_1 : collegeEmployee)
-            if(collegeEmployee_1.getFirstName().equals(search))
+            if(collegeEmployee_1.getLastName().equals(search))
                 collegeEmployee_1.DisplayAll();
         
         for (Faculty faculty_1 : faculty)
-            if(faculty_1.getFirstName().equals(search))
+            if(faculty_1.getLastName().equals(search))
                 faculty_1.DisplayAll();
         
         for (Student student_1 : student)
-            if(student_1.getFirstName().equals(search))
+            if(student_1.getLastName().equals(search))
                 student_1.DisplayAll();
     }
     
